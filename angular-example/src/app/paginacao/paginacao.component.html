@@ -1,0 +1,30 @@
+<div class="pag">
+    <button (click)="changePg(-maxPg)"><<</button>
+    <button (click)="changePg(-1)"><</button>
+
+    <div class="nums">
+        <div class="esq">
+            @if (pg - 2 > 0) {
+                <p (click)="changePg(-2)">{{pg - 2}}</p>
+            }
+            @if (pg - 1 > 0) {
+                <p (click)="changePg(-1)">{{pg - 1}}</p>
+            }
+        </div>
+
+        <p class="p">{{pg}}</p>
+
+        <div class="dir">
+            @if (pg + 1 <= maxPg) {
+                <p (click)="changePg(1)">{{pg + 1}}</p>
+            }
+            @if (pg + 2 <= maxPg) {
+                <p (click)="changePg(2)">{{pg + 2}}</p>
+            }
+        </div>
+
+    </div>
+
+    <button (click)="changePg(1)">></button>
+    <button (click)="changePg(maxPg)">>></button>
+</div>

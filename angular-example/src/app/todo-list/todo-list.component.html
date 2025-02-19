@@ -1,0 +1,22 @@
+<h1>{{'title' | translate: language}}</h1>
+
+<ul>
+    @for (item of items; track item)
+    {
+        <li>{{item}}</li>
+    }
+
+    @if(current.currentItem !== "")
+    {
+        <li>{{current.currentItem}}</li>
+    }
+
+    @else if (items.length == 0)
+    {
+        <li>A lista está vazia.</li>
+    }
+</ul>
+
+<add-item [placeholder]="'placeholder' | translate:language"
+    (onSendInput)="reciveNewItem($event)" 
+    #current />

@@ -1,0 +1,11 @@
+<todo-list />
+
+<list #list
+    [pg]="pag.pg"
+    [size]="5"
+    />
+<paginacao #pag
+    [maxPg]="list.maxPg"
+    />
+
+<router-outlet />

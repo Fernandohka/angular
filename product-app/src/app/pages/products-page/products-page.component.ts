@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router, RouterOutlet } from '@angular/router';
+import { MockProductService } from '../../services/mock-product.service';
+import { Product } from '../../models/product';
 
 @Component({
   selector: 'app-products-page',
@@ -7,6 +9,18 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './products-page.component.html',
   styleUrl: './products-page.component.css'
 })
-export class ProductsPageComponent {
+export class ProductsPageComponent implements OnInit{
+  products: Product[] = [];
+  constructor(
+    private productService: MockProductService,
+    private router: Router
+  ) {}
+  ngOnInit(): void {
+    this.products = this.productService.getProducts();
+  }
+  
+  addNew() {
+    this.router.navigate(['products', 'add'])
+  }
 
 }

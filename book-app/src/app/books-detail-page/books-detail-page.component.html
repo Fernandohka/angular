@@ -1,0 +1,36 @@
+<div class="main-container">
+    <mat-card class="card">
+        <mat-card-header>
+            <mat-card-title>{{(book | async)?.title}}</mat-card-title>
+            <mat-card-subtitle>{{(book | async)?.author}}</mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content>
+            <mat-list>
+                <mat-list-item>
+                    Nota: <app-stars></app-stars>
+                </mat-list-item>
+                <mat-list-item>
+                    Numero de Paginas: {{(book | async)?.pages}}
+                </mat-list-item>
+                <mat-list-item>
+                    Preço: {{(book | async)?.price}}
+                </mat-list-item>
+                <mat-list-item>
+                    Quantidade em Estoque: {{(book | async)?.quantity}}
+                </mat-list-item>
+                <mat-list-item>
+                    Ano: {{(book | async)?.year}}
+                </mat-list-item>
+
+                <mat-list-item>
+                    <mat-chip-set>
+                        @for(genre of (book | async)?.genres;track $index) {
+                            <mat-chip>{{genre}}</mat-chip>
+                        }
+                    </mat-chip-set>
+                </mat-list-item>
+            </mat-list>
+        </mat-card-content>
+    </mat-card>
+</div>
