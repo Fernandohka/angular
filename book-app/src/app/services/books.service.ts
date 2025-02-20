@@ -21,7 +21,7 @@ export class BooksService {
   }
 
   search(query: string, page: number, limit: number): Observable<BookData> {
-    let url = `${this.apiUrl}/book?query=${query}&page=${page}&limit${limit}`
+    let url = `${this.apiUrl}/book?query=${query}&page=${page}&limit=${limit}`
     return this.http.get<BookData>(url)
   }
 

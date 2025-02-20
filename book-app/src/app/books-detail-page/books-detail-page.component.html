@@ -8,7 +8,7 @@
         <mat-card-content>
             <mat-list>
                 <mat-list-item>
-                    Nota: <app-stars></app-stars>
+                    Nota: <app-stars [n]="(book | async)?.avaliation"></app-stars>
                 </mat-list-item>
                 <mat-list-item>
                     Numero de Paginas: {{(book | async)?.pages}}

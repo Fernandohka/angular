@@ -1,1 +1,21 @@
-<p>books works!</p>
+<mat-grid-list cols="5" rowHeight="2:1">
+    @for (item of (data | async)?.books; track $index) {
+        <mat-grid-tile>
+            <a [href]="'/book/' + item.id">
+                <app-books-item 
+                    [author]="item.author"
+                    [price]="item.price"
+                    [title]="item.title"
+                />
+            </a>
+        </mat-grid-tile>
+    }
+</mat-grid-list>
+
+<mat-paginator [length]="(data | async)?.total"
+              [pageSize]="10"
+              [pageSizeOptions]="[5, 10, 25, 100]"
+              (page)="changePage($event)"
+              aria-label="Select page"
+              >
+</mat-paginator>
