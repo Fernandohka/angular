@@ -18,5 +18,6 @@ export class StarsComponent implements OnInit{
         this.num.push(this.n)
       }
     }
+    console.log(this.n)
   }
 }
